@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+}
+
+.header {
+    background-color: #6c63ff;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.sort-btn, .add-btn, .form-container button {
+    background-color: #6c63ff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.sort-btn:hover, .add-btn:hover, .form-container button:hover {
+    background-color: #574fd6;
+}
+
+.message-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.message-card {
+    width: 280px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.6;
+    color: #333;
+    position: relative;
+}
+
+.message-card.green {
+    border-left: 6px solid #00c853;
+}
+
+.message-card.blue {
+    border-left: 6px solid #00bcd4;
+}
+
+.message-card p {
+    margin: 8px 0;
+}
+
+.like-btn {
+    color: #ff4081;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-btn {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+}
+
+.form-container {
+    display: none;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    width: 60%;
+    border-radius: 12px;
+}
+
+.form-container textarea {
+    width: 80%;
+    height: 80px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    resize: none;
+}

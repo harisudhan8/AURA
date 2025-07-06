@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OpenBoard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>AURA</h1>
+        <button onclick="sortMessages()" class="sort-btn">SORT BY</button>
+    </div>
+
+    <div class="message-container" id="messageContainer"></div>
+
+    <button onclick="openForm()" class="add-btn">+</button>
+
+    <div class="form-container" id="formContainer">
+        <textarea id="messageInput" placeholder="Write your thought..."></textarea>
+        <button onclick="submitMessage()">Post</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
