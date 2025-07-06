@@ -1,7 +1,7 @@
 let sortBy = 'timestamp';
 let order = 'desc';
 
-const backendUrl = 'http://localhost:3000';  // 👈 Add your backend URL here
+const backendUrl = 'https://aura-zes5.onrender.com/';  // 👈 Add your backend URL here
 
 async function fetchMessages() {
     const response = await fetch(`${backendUrl}/api/thoughts?sortBy=${sortBy}&order=${order}`);
