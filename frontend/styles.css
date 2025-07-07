@@ -1,104 +1,194 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f7fa;
+    font-family: 'Roboto Mono', monospace;
+    background-color: #f5f5f5;
+    color: #1a1a1a;
 }
 
+/* Header */
 .header {
-    background-color: #6c63ff;
-    color: #fff;
+    background-color: #ececec;
+    border-bottom: 4px solid #000;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.header h1 {
-    margin: 0;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 28px;
+    letter-spacing: 2px;
+    flex-wrap: wrap;
 }
 
-.sort-btn, .add-btn, .form-container button {
-    background-color: #6c63ff;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 15px;
+/* Sort Button */
+.sort-btn,
+.add-btn,
+.form-popup button {
+    border: 4px solid #000;
+    background-color: #ffd600;
+    color: #000;
+    font-weight: bold;
     font-size: 16px;
+    padding: 10px 15px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    box-shadow: 5px 5px 0 #000;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.sort-btn:hover, .add-btn:hover, .form-container button:hover {
-    background-color: #574fd6;
+.sort-btn:hover,
+.add-btn:hover,
+.form-popup button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 #000;
 }
 
+/* Messages */
 .message-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 20px;
     padding: 20px;
-    justify-content: center;
+    align-items: center;
 }
 
 .message-card {
-    width: 280px;
-    padding: 20px;
-    border-radius: 12px;
     background-color: #fff;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 4px solid #000;
+    box-shadow: 6px 6px 0 #000;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
     font-family: 'Courier New', Courier, monospace;
-    line-height: 1.6;
-    color: #333;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-left: 12px solid #000;
 }
 
-.message-card.green {
-    border-left: 6px solid #00c853;
-}
+.message-card.green { border-left-color: #00c853; }
+.message-card.blue { border-left-color: #00bcd4; }
+.message-card.yellow { border-left-color: #ffd600; }
+.message-card.red { border-left-color: #ff5252; }
+.message-card.orange { border-left-color: #ff9100; }
 
-.message-card.blue {
-    border-left: 6px solid #00bcd4;
+.message-card:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0 #000;
 }
 
 .message-card p {
-    margin: 8px 0;
+    margin: 0;
+    line-height: 1.6;
+    word-break: break-word;
+    font-size: 1rem;
 }
 
+/* Like Button */
 .like-btn {
-    color: #ff4081;
-    cursor: pointer;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
     font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #ff4081;
 }
 
-.add-btn {
+/* Timestamp */
+.message-card p:last-child {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+.sort-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.sort-controls select {
+    border: 4px solid #000;
+    background-color: #ffd600;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px 12px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 #000;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+}
+
+/* Add Button with Tooltip */
+.add-btn-wrapper {
     position: fixed;
     right: 30px;
     bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-btn {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     font-size: 24px;
 }
 
-.form-container {
-    display: none;
-    padding: 20px;
+/* Tooltip Text */
+.tooltip {
+    margin-top: 8px;
+    background-color: #000;
+    color: #ffd600;
+    padding: 8px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    max-width: 180px;
     text-align: center;
-    background-color: #fff;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    margin: 20px auto;
-    width: 60%;
-    border-radius: 12px;
 }
 
-.form-container textarea {
-    width: 80%;
+/* Form Overlay */
+.form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+/* Popup */
+.form-popup {
+    background-color: #fff;
+    border: 4px solid #000;
+    box-shadow: 6px 6px 0 #000;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+}
+
+.form-popup textarea {
+    width: 100%;
     height: 80px;
     padding: 10px;
     font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    border: 4px solid #000;
     resize: none;
+}
+
+/* Blur Background */
+.blur-background .header,
+.blur-background .message-container {
+    filter: blur(4px);
+    pointer-events: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .header { flex-direction: column; gap: 15px; text-align: center; }
+    .message-card { width: 95%; }
+    .tooltip { max-width: 90%; }
 }

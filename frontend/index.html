@@ -6,18 +6,37 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <div class="header">
         <h1>AURA</h1>
-        <button onclick="sortMessages()" class="sort-btn">SORT BY</button>
+        <div class="sort-controls">
+    <select id="sortField" onchange="fetchMessages()">
+        <option value="timestamp">Date</option>
+        <option value="likes">Likes</option>
+    </select>
+
+    <select id="sortOrder" onchange="fetchMessages()">
+        <option value="desc">Descending</option>
+        <option value="asc">Ascending</option>
+    </select>
+</div>
+
     </div>
 
     <div class="message-container" id="messageContainer"></div>
 
-    <button onclick="openForm()" class="add-btn">+</button>
+    <!-- Plus button with tooltip -->
+    <div class="add-btn-wrapper">
+        <button onclick="openForm()" class="add-btn" title="Post an anonymous thought 💭">+</button>
+        <span class="tooltip">Click to anonymously post your thoughts. Keep it positive ✨ & respectful 🔔. Use #hashtags to express topics!</span>
+    </div>
 
-    <div class="form-container" id="formContainer">
-        <textarea id="messageInput" placeholder="Write your thought..."></textarea>
-        <button onclick="submitMessage()">Post</button>
+    <!-- Form Popup Overlay -->
+    <div class="form-overlay" id="formOverlay">
+        <div class="form-popup">
+            <textarea id="messageInput" placeholder="Write your thought... #example"></textarea>
+            <button onclick="submitMessage()">Post</button>
+        </div>
     </div>
 
     <script src="app.js"></script>
