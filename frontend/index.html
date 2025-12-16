@@ -5,6 +5,15 @@
     <title>OpenBoard</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js")
+      .then(reg => console.log("SW registered:", reg.scope))
+      .catch(err => console.error("SW failed:", err));
+  });
+}
+</script>
 <body>
 
     <div class="header">
@@ -25,13 +34,12 @@
 
     <div class="message-container" id="messageContainer"></div>
 
-    <!-- Plus button with tooltip -->
+   
     <div class="add-btn-wrapper">
         <button onclick="openForm()" class="add-btn" title="Post an anonymous thought 💭">+</button>
         <span class="tooltip">Click to anonymously post your thoughts. Keep it positive ✨ & respectful 🔔. Use #hashtags to express topics!</span>
     </div>
 
-    <!-- Form Popup Overlay -->
     <div class="form-overlay" id="formOverlay">
         <div class="form-popup">
             <textarea id="messageInput" placeholder="Write your thought... #example"></textarea>
